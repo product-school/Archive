@@ -1,0 +1,18 @@
+<%= form_tag '/friends', method: :post do %>
+	<!-- Name: <input id='friend-name' type='text'>
+	<br>
+	Hometown: <input id='friend-hometown' type='text'>
+	<br>
+	How you met: <input id='friend-meeting' type='text'>
+	<br>
+	<button id='friend-data-submit'>Submit</button> -->
+
+	Name: <%= text_field_tag :name %>
+	<br>
+	Hometown: <%= text_field_tag :hometown %>
+	<br>
+	How we met: <%= text_field_tag :meeting_circumstances %>
+	<br>
+
+	<%= submit_tag 'Add Friend' %>
+<% end %>

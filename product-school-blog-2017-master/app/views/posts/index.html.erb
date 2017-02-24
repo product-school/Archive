@@ -1,0 +1,32 @@
+<div class="header-clearing">
+	<div class="body-container">
+			<% if @posts %>
+				<div id="latest-posts">
+					<h5>MOST RECENT</h5>
+						<%- @posts.each do |post| %>
+							<div class="post-item">
+								<%= link_to post_path(post) do %>
+										<h3><%= post.title %></h3>
+								<%- end -%>
+								<div class="left-section">
+									<p> <%= truncate(post.text.html_safe, :length => 200, :escape => false) %></p>
+								</div>
+							</div>
+						<%- end -%>
+				</div>
+		<% else %>
+			<h1>Welcome to the Product School Blogging Platform!</h1>
+			<% if current_user %>
+				<h2>Write your first post to activate the Blog!</h2>
+					<%= link_to new_post_path do %>
+						<h3 class="get-started">Write a Post</h3>
+					<%- end -%>
+			<% else %>
+				<h2>Create an account to get started!</h2>
+				<%= link_to new_user_registration_path do %>
+					<h3 class="get-started">Let's Do It!</h3>
+				<%- end -%>
+			<% end %>
+		<%- end -%>
+	</div>
+</div>

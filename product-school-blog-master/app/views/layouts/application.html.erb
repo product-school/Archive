@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ProductSchool</title>
+  <link href='https://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<header>
+		<%=link_to posts_path do %>
+			<h1 id="logo">PS</h1>
+		<%-end-%>
+		<div id="right-nav">
+			<% if current_user %>
+				<%= link_to new_post_path do %>
+					<h3>Write a Post</h3>
+				<%- end -%>
+				<%= link_to edit_user_registration_path(current_user) do %>
+					<h3>Update User Profile</h3>
+				<%- end -%>
+			<% else %>
+				<%= link_to new_user_session_path do %>
+					<h3>Sign in/Sign up</h3>
+				<%- end -%>
+			<%- end -%>
+		</div>
+
+	</header>
+	<div id="notices">
+		<% if notice.present? %>
+			<p class="notice"><%= notice %></p>
+		<%- end -%>
+		<% if alert.present? %>
+			<p class="alert"><%= alert %></p>
+		<%- end -%>
+	</div>
+	<%= yield %>
+<footer>
+	<% if current_user %>
+		<%=link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+	<% end %>
+</footer>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<%= link_to 'Add a Friend', new_friend_path %>
+
+<ul id='friend-list'>
+	<% @friends.each do |friend| %>
+		<li>
+			<%= link_to friend.name, friend_path(friend) %>
+		</li>
+	<% end %>
+</ul>

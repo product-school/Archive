@@ -1,0 +1,17 @@
+source 'https://rubygems.org' do
+  
+  gem 'faker'
+
+  # In software engineering, we environments
+  # * Production - The live site
+  # * Development - Where we write the code
+  # * Test - Where testing happens
+
+  group :development, :test do
+  	gem 'pry'
+  end
+
+  group :production do
+  end
+end
+

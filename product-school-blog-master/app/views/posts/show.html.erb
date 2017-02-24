@@ -1,0 +1,42 @@
+<div class="header-clearing">
+		<div id='header-image'>
+			<%= image_tag @post.image.url(:medium) %>
+			<p><i><%= @post.caption %></i></p>
+		</div>
+		<div class="body-container">
+			<h1><%= @post.title %></h1>
+			<div id="author-section">
+				<%= image_tag @post.user.avatar.url(:thumb) %>
+				<p>
+					By: <%= @post.user.first_name %> <%= @post.user.last_name %>
+				</p>
+			</div>
+			<h3><%= @post.intro %></h3>
+			<p><%= @post.body.html_safe %> <% if current_user && current_user.id == @post.user.id %> <span> <%= link_to "Edit Post",  edit_post_path(@post)%></span><%-end-%></p>
+		</div>
+		<div id="next-post">
+			<div class="body-container">
+				<% if @next_post %>
+					<h4>WANT TO CHECK OUT MY NEXT BLOG POST?</h4>
+					<div class="post-item">
+						<%= link_to post_path(@next_post) do %>
+								<h3><%= @next_post.title %></h3>
+						<% end %>
+						<div class="left-section">
+							<p><%= truncate(@next_post.body.html_safe, :length => 200, :escape => false) %></p>
+							<div class="blog-details">
+								<%= image_tag @next_post.category.image.url(:thumb) %>
+								<p>Category: <%= @next_post.category.name %>. By: <%= @next_post.user.first_name %> <%= @next_post.user.last_name %>
+								<br><%= @next_post.try(:image_updated_at).strftime("%A %B %d, %Y") %></p>
+							</div>
+						</div>
+						<div class="right-section">
+							<%= image_tag @next_post.image.url(:thumb) %>
+						</div>
+					</div>
+				<%- end -%>
+			</div>		
+		</div>
+	</div>
+</body>
+</html>

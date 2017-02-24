@@ -1,0 +1,43 @@
+body {
+  background-color: lightyellow;
+}
+
+h1 {
+  font-size: 42px;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  color: blue;
+}
+
+.favorite {
+  background-color: orange;
+}
+
+.favorite img {
+  float: left;
+}
+
+.clear {
+  clear: both;
+}
+
+.shapes {
+  width: 80%;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: magenta;
+}
+
+.shapes li {
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+  background-color: forestgreen;
+  margin: 50px;
+  padding: 20px;
+}
+
+footer {
+  color: red;
+}

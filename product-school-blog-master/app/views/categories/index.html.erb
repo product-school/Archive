@@ -1,0 +1,12 @@
+<div class="header-clearing">
+	<div class="body-container">
+		<h1>Categories</h1>
+		<%=link_to "Create New Category", new_category_path %>
+		<% @categories.each do |category|%>
+			<div class="category">
+				<p><%= category.name %> (<%=link_to "edit", edit_category_path(category) %>)</p>
+				<%= image_tag category.image.url(:thumb) %>
+			 </div>
+		<%- end %>
+	</div>
+</div>

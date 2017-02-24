@@ -1,0 +1,47 @@
+body {
+	background-color: teal;
+	font-family: 'verdana';
+}
+
+.hobbies {
+	background-color: blue;
+	border: 1px solid red;
+	color: white;
+	/*position: relative moves the element relative to its starting point*/
+	/*position: absolute is relative to the page*/
+	/*position: fixed is relative to the browser*/
+	position: fixed;
+	top: -10px;
+	left: 75px;
+}
+
+img#duck {
+	float: right;
+	width: 200px;
+	height: 200px;
+}
+
+.clear {
+	clear: both;
+}
+
+ul li {
+	background-color: green;
+	/*default dislpay for li tags is block*/
+	display: inline;
+	/*inline means only take up as much space as it needs*/
+	display: inline-block;
+	/*inline block is the best of both worlds*/
+	padding: 20px;
+	margin: 40px;
+}
+
+/*dot means we are looking for the class green*/
+.green {
+	color: green;
+}
+
+/*hash tag will look for an id*/
+#burgundy {
+	color: maroon;
+}

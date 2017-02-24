@@ -1,0 +1,30 @@
+<%= form_for(@category, :html => { :multipart => true } ) do |f| %>
+  
+  <% if @category.errors.any? %>
+      <div class="error_messages">
+        <ul>
+          <% @category.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %>
+    <% if @category.image %>
+      <%= image_tag @category.image.url(:medium) %>
+    <% end %>
+    <%= f.file_field :image, :required => true %>
+  </div>
+
+  <div class="actions">
+    <%= f.label :submit%>
+    <%= f.submit :class => 'button save' %>
+  </div>
+<% end %>

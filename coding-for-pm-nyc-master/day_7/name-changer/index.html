@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title></title>
+	<script src='script.js'></script>
+</head>
+<body>
+	<h1>Names (and Identities)</h1>
+
+	<!-- Input elements (and other form elements) do not behave entirely like normal elements. We access their values through their "value" property. Properties like "innerText" and "innerHTML" will not always return the desired values. -->
+	Name: <input type='text' id='new-name' maxlength='20'>
+	<br>
+	Age: <input type='text' id='new-age'>
+	<br>
+	Location: <input type='text' id='new-location'>
+	<br>
+
+	<button id='add-identity-button'>Add an Identity</button>
+	<ul id='identities'>
+		<li>
+			<p>Name: <span id='name'>George</span></p>
+			<p>Age: <span id='age'>19</span></p>
+			<p>Location: <span id='location'>NYC</span></p>
+			<p>Date: <span id='date'>11/29/2016</span></p>
+		</li>
+	</ul>
+</body>
+</html>

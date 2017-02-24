@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FriendApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<nav>
+  		<!-- <a href="/about_me">About Me</a> -->
+  		<%= link_to 'Home', root_path %>
+  		<%= link_to 'About Me', about_me_path %>
+      <%= link_to 'Friends', friends_path %>
+  	</nav>
+  	
+    <%= yield %>
+  </body>
+</html>

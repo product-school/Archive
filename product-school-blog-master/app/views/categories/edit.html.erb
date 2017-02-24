@@ -1,0 +1,24 @@
+<header>
+	<a href="index.html">
+		<h1 id="logo">CW</h1>
+	</a>
+	<div id="right-nav">
+		<% if current_user %>
+			<%= link_to new_post_path do %>
+				<h3>Write a story</h3>
+			<%- end -%>
+		<% else %>
+			<%= link_to new_user_session_path do %>
+				<h3>Sign in/Sign up</h3>
+			<%- end -%>
+		<%- end -%>
+	</div>
+
+</header>
+<div class="body-container">
+	<h1> Edit Category </h1>
+
+	<%= render :partial => 'form' %>
+
+	<%= link_to "Return to Categories", categories_path %>
+</div>

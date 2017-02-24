@@ -1,0 +1,61 @@
+<div class="header-clearing">
+	<div class="body-container">
+		<% if @featured_post %>
+			<div id="featured-blog-entry">
+				<h5>FEATURED</h5>
+				<%= link_to post_path(@featured_post) do %>
+					<%= image_tag @featured_post.image.url(:medium) %>
+					<h1><%= @featured_post.title %></h1>
+				<%- end %>
+				<div id="author-section">
+					<%= image_tag @featured_post.user.avatar.url(:thumb) %>
+					<p>
+						By: <%= @featured_post.user.first_name %> <%= @featured_post.user.last_name %>
+					</p>
+				</div>
+				<h3><%= truncate(@featured_post.body.html_safe, :length => 500, :escape => false) %></h3>
+				<div class="blog-details">
+					<%= image_tag @featured_post.category.image.url(:thumb) %>
+					<p>Category: <%=@featured_post.category.name %>
+					<br><%= @featured_post.image_updated_at.strftime("%A %B %d, %Y") %></p>
+				</div>
+			</div>
+			<% if @posts %>
+				<div id="latest-posts">
+					<h5>MOST RECENT</h5>
+						<%- @posts.each do |post| %>
+							<div class="post-item">
+								<%= link_to post_path(post) do %>
+										<h3><%= post.title %></h3>
+								<%- end -%>
+								<div class="left-section">
+									<p> <%= truncate(post.body.html_safe, :length => 200, :escape => false) %></p>
+									<div class="blog-details">
+										<%= image_tag post.category.image.url(:thumb) %>
+										<p>Category: <%= post.category.name %>. By: <%= post.user.first_name %> <%= post.user.last_name %>
+										<br><%= post.try(:image_updated_at).strftime("%A %B %d, %Y") %></p>
+									</div>
+								</div>
+								<div class="right-section">
+									<%= image_tag post.image.url(:thumb) %>
+								</div>
+							</div>
+						<%- end -%>
+				</div>
+			<%- end %>
+		<% else %>
+			<h1>Welcome to the Product School Blogging Platform!</h1>
+			<% if current_user %>
+				<h2>Write your first post to activate the Blog!</h2>
+					<%= link_to new_post_path do %>
+						<h3 class="get-started">Write a Post</h3>
+					<%- end -%>
+			<% else %>
+				<h2>Create an account to get started!</h2>
+				<%= link_to new_user_registration_path do %>
+					<h3 class="get-started">Let's Do It!</h3>
+				<%- end -%>
+			<% end %>
+		<%- end -%>
+	</div>
+</div>
